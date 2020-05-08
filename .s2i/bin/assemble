@@ -1,0 +1,17 @@
+#!/bin/sh
+
+DEPLOY=/tmp/src/deployments
+
+
+if [ -d ${DEPLOY} ]; then
+  echo "############ Adding Prometheus Exporter ############"
+
+  chmod +x ${DEPLOY}/*
+  chmod +x ${DEPLOY}/lib/*
+
+  cp -v ${DEPLOY}/lib/* $AMQ_HOME/lib/
+
+echo "############ End - Adding Prometheus Exporter ############"
+fi
+
+exit 0
